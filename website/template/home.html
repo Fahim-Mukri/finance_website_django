@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Finance</title>
+    <style>
+    /* Reset some default browser styles */
+body, h1, h2, h3, p, ul, li {
+    margin: 10;
+    padding: 10;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(30deg, rgb(33, 33, 197), red);
+}
+
+header {
+    background-color: #151616;
+    padding: 5px 0;
+    text-align: center;
+    color: #FFFFFF;
+
+}
+a {
+    color: #FFFFFF; /* Set the link text color to white */
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav ul li {
+    background-color: #151616;
+    color: #cc2a2a;
+    display: inline;
+    margin-right: 30px;
+    
+
+}
+
+.hero {
+    background-image: url('your-background-image.jpg');
+    background-size: cover;
+    color: #181717;
+    text-align: center;
+    padding: 100px 0;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #333;
+    color: #fff;
+    padding: 20px 30px;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #0f0f0f;
+}
+
+.features {
+    display: flex;
+    justify-content: center;
+    background-color: #fff;
+    padding: 30px 0;
+}
+
+.feature {
+    text-align: center;
+    margin: 0 20px;
+}
+
+.feature h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+.container {
+    text-align: center; /* Center-align the text inside the container */
+}
+
+</style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="sipcalculator/">sipcalculator</a></li>
+                <li><a href="tax_calculator/">taxcalculator</a></li>
+                <li><a href="expense_tracker/">Expense tracker</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome to Your Finance</h1>
+            <p>Your trusted partner in financial planning</p>
+            <a href="#" class="btn">Get Started</a>
+        </div>
+    </section>
+    <section class="container">
+        <a href="sipcalculator/" class="btn">
+        <div>
+            <h2>SIP CALCULATOR</h2>
+            <p>Best way you can start investing is  through </p>
+            <p>systematically investing planning(SIP)</p>
+        </div>
+        </a>
+        <a href="expense_tracker/" class="btn">
+        <div>
+            <h2>EXPENSE TRACKER</h2>
+            <p>let's start tracking your daily expenditure </p>
+            <p>you just have to make a habit of it </p>
+        </div>
+        </a>
+        <a href="expense_tracker/" class="btn">
+        <div>
+            <h2>TAX CALCULATOR</h2>
+            <p>Start calculating your taxes</p>
+            <p>just with a click</p>
+        </div>
+        </a>
+    </section>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<html>
+    <head>
+        <title>financewebsite</title>
+        <style>
+        body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(47deg, blue, red);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+* {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+h1, h5 {
+  color: rgb(241, 238, 238);
+}
+
+.wrapper {
+  background: rgba(1, 1, 1, 1);
+  padding: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-backdrop-filter: blur(8px);
+          backdrop-filter: blur(8px);
+}
+
+input[type=text] {
+  padding: 15px;
+  color: #222;
+  width: 100%;
+}
+
+input[type=range] {
+  width: 100%;
+}
+
+.field {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+label {
+  color: white;
+}
+
+button {
+  padding: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  background:  rgb(221, 215, 215);
+  border-color: rgb(27, 25, 25);
+}
+
+#aInvested, #finalAmount {
+  font-size: 22px;
+}
+    </style>
+    </head>
+    <body>
+        <div class="wrapper">
+            <h1>50 30 20 RULE</h1>
+            <div class="field">
+                <label for="">MONTHLY SALARY ₹</label>
+                <div><input type="text" class="amount" placeholder="10000₹"></div>
+            </div>
+            <div class="field">
+                <label for="">Return Rate %</label>
+                <div><input type="text" class="rate" placeholder="15%"></div>
+                <div class="container">
+                  <h4>Your Balance</h4>
+                  <h1 id="aInvested"></h1>
+            </div>
+            <div class="field">
+                <label for="">Duration Yrs</label>
+                <div><input type="text" class="time" placeholder="20Yrs"></div>
+            </div>
+            <button onclick="calculateSIP()">CALCULATE</button>
+            <h5>AMOUNT INVESTED: <p id="aInvested"></p></h5>
+            <h5>FINAL AMOUNT: <p id="finalAmount"></p></h5>
+        </div>       
+        <script>
+            var amount  =  document.querySelector(".amount");
+            var rate  =  document.querySelector(".rate");
+            var time  =  document.querySelector(".time");       
+             function rule(){
+                var needs = amount.value
+                var monthlyRate = rate.value / 12 / 100; 
+                var months = time.value * 12;  
+                var futureValue = 0;
+                futureValue = amount.value * (Math.pow(1 + monthlyRate, months) - 1) /monthlyRate;
+                var amountInvested = amount.value*months;
+                console.log(futureValue, amountInvested);
+                document.getElementById("aInvested").innerHTML ="₹"+ amountInvested;
+                document.getElementById("finalAmount").innerHTML ="₹"+ Math.round(futureValue > 0 ? futureValue: 0);
+             }
+        </script>
+    </body>
+</html>

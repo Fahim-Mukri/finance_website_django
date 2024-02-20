@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Income Tax Calculator - New Tax Slabs 2023: Calculate Income Tax Online</title>
+    <style>
+            body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(47deg, blue, red);
+  
+}
+
+     .container{
+  width: 500px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 50px;
+}
+.form-group{
+  margin: 20px 0;
+  text-align: left;
+}
+label{
+  display: block;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+input[type='number']{
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border:solid 1px rgb(14, 13, 13);
+  margin-bottom: 20px;
+}
+button{
+  padding: 10px 20px;
+  background-color: rgb(17, 17, 17);
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  border:none
+}
+.myWrapTable{
+  text-align: left;
+  border-collapse: collapse;
+}
+.myWrapTable td{
+  border: solid 1px rgb(20, 20, 20);
+  padding: 5px 10px;
+} 
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Income Tax Calculator</h1>
+      <h2>New regime</h2>
+      <p>Revised Income tax slabs under new tax regime for FY 2023-24</p>
+      <p>
+        The income tax slabs under the new income tax regime will be as follows:
+      </p>
+      <table class="myWrapTable"><tbody><tr><td><strong>Income tax slabs under new tax regime</strong></td><td><strong>Income tax rates under new tax regime</strong></td></tr><tr><td>O to Rs 3 lakh</td><td>0</td></tr><tr><td>Rs 3 lakh to Rs 6 lakh</td><td>5%</td></tr><tr><td>Rs 6 lakh to Rs 9 lakh</td><td>10%</td></tr><tr><td>Rs 9 lakh to Rs 12 lakh</td><td>15%</td></tr><tr><td>Rs 12 lakh to Rs 15 lakh</td><td>20%</td></tr><tr><td>Income above Rs 15 lakh</td><td>30%</td></tr></tbody></table>
+
+      <form id="tax-form">
+        <div class="form-group">
+          <label for="income">Annual Income: New Slab</label>
+            <input type="number" id="income" name="income"
+            placeholder="Enter your annual income"
+            required />
+        </div>
+        <div class="form-group">
+          <button type="submit">Calculate Tax</button>
+        </div>
+      </form>
+      </div>
+    <script>
+      const form = document.querySelector('#tax-form');
+
+function calculatorIncomeTax(income){
+    let tax= 0;
+    if(income <= 300000){
+        tax = 0;
+    }else if(income > 300000 && income <= 600000){
+        tax = (income - 300000) *0.05;
+    }else if(income > 600000 && income <= 900000){
+        tax = (300000) * 0.05 + (income - 600000) * 0.10
+    }else if(income > 900000 && income <= 1200000){
+        tax = (300000) * 0.05 + (300000) * 0.10 + (income - 900000) * 0.15
+    }else if(income > 1200000 && income <= 1500000){
+        tax = (300000) * 0.05 + (300000) * 0.10 + ( 300000) * 0.15 + (income - 1200000) * 0.20
+    }else{
+        tax = (300000 * 0.05) + (300000 * 0.10) +  (300000 * 0.15) + (300000 * 0.20) + (income - 1500000) * 0.30
+    }
+    return tax;
+}
+
+form.addEventListener('submit', (event)=>{
+    event.preventDefault();
+
+    const income = Number(form.income.value);
+    const tax = calculatorIncomeTax(income);
+
+    alert(`The income tax of an income of ${income} is: ${tax}`);
+})
+    </script>
+  </body>
+</html>
